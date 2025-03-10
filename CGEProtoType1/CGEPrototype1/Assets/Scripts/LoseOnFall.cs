@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using UnityEngine;
+
+public class LoseOnFall : MonoBehaviour
+{
+    // Set this in the inspector
+
+    public float lowestY;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(transform.position.y < lowestY)
+        {
+            ScoreManager.gameOver = true;
+        }
+    }
+}
