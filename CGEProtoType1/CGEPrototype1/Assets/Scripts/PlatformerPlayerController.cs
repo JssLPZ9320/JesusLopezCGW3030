@@ -28,6 +28,10 @@ public class PlatformerPlayerController : MonoBehaviour
 
     private AudioSource playerAudio;
 
+    public AudioClip scoreScound;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +78,11 @@ public class PlatformerPlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+    }
+
+   public void PlayCoinSound()
+    {
+        playerAudio.PlayOneShot(scoreScound, 1.0f);
     }
 
 }

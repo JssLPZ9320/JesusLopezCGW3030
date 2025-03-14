@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ScoreTriggerZone : MonoBehaviour
 {
+    public AudioClip scoreSound;
+    private AudioSource scoreAudio;
+    
 
     //create a variable to keep track whethere trigger is active 
     bool active = true;
@@ -16,7 +19,10 @@ public class ScoreTriggerZone : MonoBehaviour
             //deactivate the trigger zone
             active = false;
             ScoreManager.score++;
+            //play coin sound effect
+            PlatformerPlayerController platformer = collision.gameObject.GetComponent<PlatformerPlayerController>();
 
+            platformer.PlayCoinSound();
 
             Destroy(gameObject);
         }
