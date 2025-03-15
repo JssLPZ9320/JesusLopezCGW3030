@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Torches
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - BackGround
+  - PlatForms
   - 
   - 
   - 
@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 'Torches '
+    uniqueID: 1336600647
+    locked: 0
   - name: PlatForm
     uniqueID: 1733759775
+    locked: 0
+  - name: BackGround
+    uniqueID: 763449511
     locked: 0
