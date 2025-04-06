@@ -11930,6 +11930,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5382324065802284910, guid: c2a1bfb0dc41d2d4193b656402cb2e6c, type: 3}
   m_PrefabInstance: {fileID: 5382324066056988349}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1064470996
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064470995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d05e8fdaa5d330f45bc081c447062194, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &1064471002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12971,6 +12992,10 @@ PrefabInstance:
       propertyPath: scoreScound
       value: 
       objectReference: {fileID: 8300000, guid: 7291ab5d729b9449faee7a0a68a796c4, type: 3}
+    - target: {fileID: 5382324065802284906, guid: c2a1bfb0dc41d2d4193b656402cb2e6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5c8b2ada1a819a54e8c051165c738f18, type: 3}
     - target: {fileID: 5382324065802284910, guid: c2a1bfb0dc41d2d4193b656402cb2e6c, type: 3}
       propertyPath: m_Name
       value: PlatFormerPlayer
