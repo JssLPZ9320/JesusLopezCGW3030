@@ -12,6 +12,12 @@ public class Projectile : MonoBehaviour
     // speed of the projectile with a default value of 20
     public float speed = 20f;
 
+    //Damage of the projectile with a default value 20
+    public int damage = 20;
+
+    //impact effect of the projectile with value of 20
+    public GameObject impactEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +29,25 @@ public class Projectile : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+   //function called when the projectile collides with another object
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        //Get the enemy component of the object that was hit
+        Enemy enemy = hitInfo.GetComponent<Enemy>();
+
+        //if the object that was hit has an enemy component
+        if(enemy != null)
+        {
+            //call the take damage function of the enemy component
+            enemy.TakeDamage(damage);
+        }
+
+        if(hitInfo.gameObject.tag != "Player")
+        {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
         
     }
 }

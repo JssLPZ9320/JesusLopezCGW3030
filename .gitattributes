@@ -1,2 +1,41 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Unity C# and text-based files - always use LF
+*.cs     text eol=lf
+*.shader text eol=lf
+*.cginc  text eol=lf
+*.compute text eol=lf
+*.hlsl   text eol=lf
+*.txt    text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.xml    text eol=lf
+*.yaml   text eol=lf
+*.asmdef text eol=lf
+*.unity  text eol=lf
+*.prefab text eol=lf
+*.mat    text eol=lf
+*.meta   text eol=lf
+
+# Binary assets - mark as binary to avoid diffs
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.psd    binary
+*.fbx    binary
+*.mp3    binary
+*.wav    binary
+*.ogg    binary
+*.tga    binary
+*.ttf    binary
+*.otf    binary
+*.dll    binary
+*.exe    binary
+
+# Prevent Unity temp files and build outputs from being tracked
+[Ll]ibrary/ export-ignore
+[Tt]emp/ export-ignore
+[Bb]uild/ export-ignore
+[Bb]uilds/ export-ignore
+.obj/ export-ignore
+.vscode/ export-ignore
