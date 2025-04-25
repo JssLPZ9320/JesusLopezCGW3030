@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
             Debug.LogError("HealthBar (DisplayBar script) not found");
             return;
         }
+
+        HealthBar.SetMaxValue(health);
     }
 
     // Update is called once per frame
