@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     //reference to the health bar
     private DisplayBar HealthBar;
 
+    public int damage = 10;
+
     public void TakeDamage(int damage)
     {
         // subtract the damage dealth from health 
@@ -38,6 +40,23 @@ public class Enemy : MonoBehaviour
         }
 
         HealthBar.SetMaxValue(health);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+            if(playerHealth == null)
+            {
+                Debug.LogError("PlayerHealth script not found on player");
+            }
+
+            playerHealth.TakeDamage(damage);
+
+            playerHealth.Knockback(transform.position);
+        }
     }
 
     // Update is called once per frame
