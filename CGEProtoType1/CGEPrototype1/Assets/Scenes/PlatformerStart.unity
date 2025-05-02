@@ -12340,8 +12340,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 327751642}
+  playerHitSound: {fileID: 8300000, guid: 8a0f5b7c78ffa43ba8aed427eb496453, type: 3}
   knockBack: 5
-  PlayerDeathEffect: {fileID: 0}
+  PlayerDeathEffect: {fileID: 1108448250359964816, guid: 0e67eac8d523b431fb825374a641684e, type: 3}
   hitRecoveryTime: 0.2
 --- !u!82 &1064471002
 AudioSource:

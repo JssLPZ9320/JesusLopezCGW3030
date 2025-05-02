@@ -14,6 +14,10 @@ public class PlayerHealth : MonoBehaviour
     //refernce to ridgided body
     private Rigidbody2D rb;
 
+    private AudioSource playerAudio;
+    public AudioClip playerHitSound;
+   
+
     //knoickback force when player collides with enemy
     public float knockBack = 5f;
 
@@ -29,6 +33,9 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        playerAudio = GetComponent<AudioSource>();
+
         //set rididbody
         rb = GetComponent<Rigidbody2D>();
 
@@ -53,7 +60,12 @@ public class PlayerHealth : MonoBehaviour
 
         hitRecently = true;
 
-        StartCoroutine(RecoverFromHit());
+        if(gameObject.activeSelf)
+        {
+            StartCoroutine(RecoverFromHit());
+        }
+
+        
 
         Vector2 direction = transform.position - enemyPosition;
 
@@ -83,6 +95,10 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            playerAudio.PlayOneShot(playerHitSound);
+        }
     }
 
     public void Die()
@@ -90,16 +106,14 @@ public class PlayerHealth : MonoBehaviour
         ScoreManager.gameOver = true;
 
         //instatinate the death effect at the players postion
-        //GameObject deathEffect = Instatiate(playerDeathEffect, transform.position, Quaternnion.identity);
+        GameObject deathEffect = Instantiate(PlayerDeathEffect, transform.position, Quaternion.identity);
 
-        //Destroy(deathEffect, 2f);
+        
+        Destroy(deathEffect, 2f);
 
         gameObject.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
