@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     public int damage = 10;
 
+    
+
     public void TakeDamage(int damage)
     {
         // subtract the damage dealth from health 
@@ -31,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        
         HealthBar = GetComponentInChildren<DisplayBar>();
 
         if (HealthBar == null)

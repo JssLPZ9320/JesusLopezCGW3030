@@ -30,10 +30,12 @@ public class PlayerHealth : MonoBehaviour
     //time in seconds to recover from hit
     public float hitRecoveryTime = .2f;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
 
         //set rididbody
@@ -81,6 +83,8 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(hitRecoveryTime);
 
         hitRecently = false;
+
+        animator.SetBool("hit", false);
     }
 
     public void TakeDamage(int damage)
@@ -98,6 +102,8 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             playerAudio.PlayOneShot(playerHitSound);
+
+            animator.SetBool("hit", true);
         }
     }
 
