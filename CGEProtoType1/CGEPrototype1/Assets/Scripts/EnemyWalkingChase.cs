@@ -19,27 +19,33 @@ public class EnemyWalkingChase : MonoBehaviour
 
     private Animator anim;
 
+    private SpriteRenderer sr;
+
     bool IsGroundAhead()
     {
         float groundCheckDistance = 2.0f;
         LayerMask groundLayer = LayerMask.GetMask("Ground");
 
-        Vector2 enemyFacingDirection = transform.rotation.y == 0 ? Vector2.left : Vector2.right;
+        Vector2 enemyFacingDirection = (sr.flipX == false) ? Vector2.left : Vector2.right;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down + enemyFacingDirection, groundCheckDistance, groundLayer);
 
+        Debug.DrawRay(transform.position, Vector2.down + enemyFacingDirection, Color.red);
         return hit.collider != null;
     }
 
     private void FacePlayer(Vector2 playerDirection)
     {
-        if(playerDirection.x < 0)
+      
+
+        if (playerDirection.x < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            sr.flipX = false;
         }
-        else
+
+        else if (playerDirection.x > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            sr.flipX = true;
         }
     }
 
@@ -65,6 +71,8 @@ public class EnemyWalkingChase : MonoBehaviour
         anim = GetComponent<Animator>();
 
         playerTransform = GameObject.FindWithTag("Player").transform;
+
+        sr = GetComponent<SpriteRenderer>();
         
     }
 
@@ -91,8 +99,17 @@ public class EnemyWalkingChase : MonoBehaviour
             else
             {
                 StopMoving();
+
+                
             }
+         
+        }
+        else
+        {
+            StopMoving();
         }
         
     }
+
+    
 }
