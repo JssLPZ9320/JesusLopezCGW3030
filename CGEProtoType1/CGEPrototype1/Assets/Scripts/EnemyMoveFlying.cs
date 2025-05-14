@@ -30,7 +30,7 @@ public class EnemyMoveFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("player");
+        player = GameObject.FindWithTag("Player");
 
         rb = GetComponent<Rigidbody2D>();
 
